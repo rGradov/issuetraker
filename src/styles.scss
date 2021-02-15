@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  background: #eaeaea;
+}
+
+.header {
+  background: #29a5d8;
+}
+
+// 10+10+20+45+15
+.item {
+  display: flex;
+  background: #fff;
+  padding: 15px 0;
+  min-height: 50px;
+
+  .UserInfo {
+    width: 20%;
+    padding: 0 15px;
+  }
+
+  .issueSeverity, .location {
+    width: 15%;
+    padding: 0 15px;
+  }
+
+  .description {
+    width: 40%;
+    padding: 0 15px;
+
+  }
+
+  .status {
+    cursor: pointer;
+    width: 15%;
+    padding: 0 15px;
+
+  }
+
+}
