@@ -9,19 +9,12 @@ import {
 })
 export class TableBodyItemComponent implements OnInit {
   @Input() userinfo: string;
-
   @Input() location: string;
-
   @Input() issueSeverity: number;
-
   @Input() description: string;
-
   @Input() status: string;
-
   @Input() index: number;
   @Input() date: Date;
-
-
   @Output() changeIdEmmit = new EventEmitter<number>();
 
   constructor() {

@@ -11,6 +11,7 @@ import {TableDataService} from '../table-service/table-data.service';
 })
 export class TableBodyComponent implements OnInit {
   issues: Issue[] = [];
+  err: string;
 
   searchString: string;
 
@@ -26,7 +27,10 @@ export class TableBodyComponent implements OnInit {
   }
 
   private getIssues(): void {
-    this.tableDataService.getIssues().subscribe((issues) => this.issues = issues['issues']);
+    this.tableDataService.getIssues().subscribe((issues) => {
+      this.issues = issues['issues'];
+    }, (err) => this.err = err.statusText)
+    ;
   }
 
   sortByStatus(): void {
