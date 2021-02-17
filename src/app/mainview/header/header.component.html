@@ -1,0 +1,14 @@
+<div class="header">
+  <div class="title">
+   Issue Tracker
+  </div>
+  <div class="search_box">
+    <input type="text" id="search_input"
+           placeholder="Filter Table Using User Info"
+           [ngModel]="search"
+            (ngModelChange)="onSearchChange($event)"
+    />
+
+  </div>
+
+</div>

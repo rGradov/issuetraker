@@ -1,19 +1,49 @@
+$main-color:#eaeaea;
+$sub-color:#29a5d8;
+$main-font-size:16px;
+@mixin item($wdt){
+  width: $wdt;
+  padding: 0 15px;
+}
+@import url('//fonts.googleapis.com/css?family=Roboto');
+
+
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  font-size: 15px;
 }
 
 body {
-  background: #eaeaea;
+  background: $main-color;
+  font-family: 'Roboto', sans-serif;
+  .header {
+    background: $sub-color;
+  }
+  .menu {
+    background: $sub-color;
+    ul {
+      display: flex;
+
+      li {
+        padding: 0 10px;
+        a {
+          text-decoration: none;
+          color: $main-color;
+          font-size: $main-font-size;
+        }
+      }
+    }
+  }
 }
 
-.header {
-  background: #29a5d8;
-}
 
-// 10+10+20+45+15
+
+
 .item {
   display: flex;
   background: #fff;
@@ -21,26 +51,28 @@ body {
   min-height: 50px;
 
   .UserInfo {
-    width: 20%;
-    padding: 0 15px;
+
+    @include item(20%)
   }
 
-  .issueSeverity, .location {
-    width: 15%;
-    padding: 0 15px;
+  .issueSeverity,
+  .location {
+    @include item(15%)
+
   }
 
   .description {
-    width: 40%;
-    padding: 0 15px;
-
+    @include item(30%)
+  }
+  .date {
+    @include item(10%)
   }
 
   .status {
     cursor: pointer;
-    width: 15%;
-    padding: 0 15px;
-
+    @include item(15%)
   }
-
+}
+.active {
+  color: red;
 }

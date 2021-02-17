@@ -1,0 +1,45 @@
+<div class="table_header">
+  <ul>
+    <li>
+      <div class="item">
+        <div class="UserInfo">
+          <span>User info</span>
+        </div>
+        <div class="location">
+          <span>location</span>
+        </div>
+        <div class="issueSeverity">
+          <span (click)="sortByIssueSeverity()">issue Severity</span>
+        </div>
+        <div class="description">
+          <span>description</span>
+        </div>
+        <div class="date">
+          <span>date</span>
+        </div>
+        <div class="status">
+          <span (click)="sortByStatus()">status</span>
+          <app-by-status></app-by-status>
+        </div>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="table_body">
+  <ul>
+    <li *ngFor="let issue of issues|filter:search;let idx = index">
+      <app-table-body-item
+        [userinfo]="issue.userinfo"
+        [location]="issue.location"
+        [issueSeverity]="issue.issueSeverity"
+        [description]="issue.description"
+        [date]='issue.date'
+        [status]="issue.status"
+        [index]="idx"
+        (changeIdEmmit)="hideIssue($event)"
+      ></app-table-body-item>
+    </li>
+  </ul>
+</div>

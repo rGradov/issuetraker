@@ -1,0 +1,27 @@
+<div class="item">
+  <div class="UserInfo">
+    <span>{{userinfo}}</span>
+  </div>
+  <div class="location">
+    <span>{{location}}</span>
+  </div>
+  <div class="issueSeverity">
+    <span>{{issueSeverity}}</span>
+  </div>
+  <div class="description">
+    <span>{{description}}</span>
+  </div>
+  <div class="date">
+    <span>{{date |date}}</span>
+  </div>
+  <div class="status">
+    <span [ngClass]="{
+          'notStarted': status === 'not started',
+          'inProgress': status === 'in progress',
+          'done'      : status === 'done'
+}">{{status}}
+     </span>
+    <button (click)="hideIssue()" >X</button>
+
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.table_body {
+  height: 300px;
+  overflow: auto;
+}
+.status {
+  display: flex;
+  flex-direction: column;
+  .dropdown {
+    padding: 0 15px;
+  }
+}
+

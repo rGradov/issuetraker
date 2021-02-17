@@ -1,4 +1,21 @@
 <div class="wrapper">
-  <app-header [(search)]="searchString" ></app-header>
-  <app-table [(search)]="searchString" ></app-table>
+<div class="menu">
+<ul>
+  <li>
+    <a routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}"
+    [routerLink]="['/']">home</a>
+  </li>
+  <li>
+    <a routerLinkActive="active" [routerLink]="['/stats']">Stats</a>
+  </li>
+  <li>
+    <a routerLinkActive="active" [routerLink]="['/login']" *ngIf="!auth.logIn">login</a>
+  </li>
+  <li *ngIf="auth.logIn">
+    <a (click)="auth.logout()">logout</a>
+  </li>
+</ul>
+</div>
+  <router-outlet></router-outlet>
 </div>
