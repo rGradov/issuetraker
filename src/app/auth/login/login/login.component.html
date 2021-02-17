@@ -20,6 +20,11 @@
           <p>Input correct password</p>
         </div>
       </div>
+    <div
+      *ngIf="err"
+      class="invalid">
+      <p>{{err}}</p>
+    </div>
   </fieldset>
   <div class="form-buttons">
       <button class="button button-primary"

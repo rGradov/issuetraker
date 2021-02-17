@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 })
 export class AuthService {
   authKey: string;
+  authErr: string;
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -21,15 +22,14 @@ export class AuthService {
           this.router.navigate(['']);
           localStorage.setItem('auth_token', data['access_token']);
         },
-        error => console.log(error.message)
-      );
+        error => this.authErr = error.message);
   }
 
   logout() {
     localStorage.removeItem('auth_token');
   }
 
-   get logIn(): boolean {
+  get logIn(): boolean {
     return (localStorage.getItem('auth_token') !== null);
   }
 

@@ -10,11 +10,11 @@ import {AuthService} from '../../auth.service';
 })
 export class LoginComponent {
   form: FormGroup;
+  err = '';
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
   ) {
-
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -24,9 +24,10 @@ export class LoginComponent {
   login(): void {
     const val = this.form.value;
 
+
     if (val.email && val.password) {
       this.authService.login(val.email, val.password);
-
+      this.err = this.authService.authErr;
     }
   }
 }
