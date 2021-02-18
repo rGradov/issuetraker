@@ -15,6 +15,10 @@
   <li *ngIf="auth.logIn">
     <a (click)="auth.logout()">logout</a>
   </li>
+  <li>
+    <a routerLinkActive="active" [routerLink]="['/register']" *ngIf="!auth.logIn">Register</a>
+  </li>
+
 </ul>
 </div>
   <router-outlet></router-outlet>

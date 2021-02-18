@@ -2,7 +2,8 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {Issue} from '../../../data/interface/issue';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
+  pure: false
 
 })
 export class FilterPipe implements PipeTransform {
@@ -10,6 +11,7 @@ export class FilterPipe implements PipeTransform {
     if (!search.trim()) {
       return issues;
     }
-    return issues.filter((issue) => issue.userinfo.toLowerCase().includes(search.toLowerCase()));
+    return issues.filter((issue) =>
+      issue.userinfo.toLowerCase().includes(search.toLowerCase()));
   }
 }

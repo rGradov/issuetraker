@@ -18,9 +18,9 @@
       </span>
     </div>
   </div>
-  <div>
-      <img (click)="openInputComent=!openInputComent"
-           src="./assets/pending-black-18dp.svg" alt="">
+  <div *ngIf="authServ.logIn">
+    <img (click)="openInputComent=!openInputComent"
+         src="./assets/pending-black-18dp.svg" alt="">
   </div>
   <div class="date">
     <span>{{date |date}}</span>
@@ -39,6 +39,10 @@
 
 </div>
 <div>
-  <app-add-comment *ngIf="!openInputComent" [id]="index" (onchanged)="AddComent($event)"></app-add-comment>
+  <app-add-comment *ngIf="!openInputComent "
+                   [id]="index"
+                   (onchanged)="AddComent($event)">
+
+  </app-add-comment>
 
 </div>

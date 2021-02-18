@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Issue} from '../../../data/interface/issue';
 import {baseUrl} from '../../../../environments/environment';
@@ -9,10 +9,10 @@ import {baseUrl} from '../../../../environments/environment';
 })
 export class TableDataService {
   private countSort = 0;
-
+  private countDate = 0;
   private countStatus = 0;
   private coments: string;
-  private id:number;
+  private id: number;
 
   constructor(private http: HttpClient) {
   }
@@ -29,6 +29,18 @@ export class TableDataService {
     }
     arr.sort((a, b) => (a.issueSeverity > b.issueSeverity ? 1 : -1));
     this.countSort += 1;
+    return arr;
+  }
+
+  sortByDate(arr: Array<Issue>): Array<Issue> {
+    console.log('start');
+    if (this.countDate % 2 === 0) {
+      arr.sort((a, b) => (a.date < b.date ? 1 : -1));
+      this.countDate += 1;
+      return arr;
+    }
+    arr.sort((a, b) => (a.date > b.date ? 1 : -1));
+    this.countDate += 1;
     return arr;
   }
 
@@ -54,7 +66,8 @@ export class TableDataService {
   }
 
   hideIssue(arr: Array<Issue>, id: number): Array<Issue> {
-    return arr.splice(id, 1);
+    arr.splice(id, 1);
+    return arr;
   }
 
   comment(coment: string, id: number) {

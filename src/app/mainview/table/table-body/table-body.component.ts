@@ -29,8 +29,7 @@ export class TableBodyComponent implements OnInit {
   private getIssues(): void {
     this.tableDataService.getIssues().subscribe((issues) => {
       this.issues = issues['issues'];
-    }, (err) => this.err = err.statusText)
-    ;
+    }, (err) => this.err = err.statusText);
   }
 
   sortByStatus(): void {
@@ -43,8 +42,15 @@ export class TableBodyComponent implements OnInit {
   }
 
   hideIssue($event: number): void {
-    this.tableDataService.hideIssue(this.issues, $event);
+    this.issues = this.tableDataService.hideIssue(this.issues, $event);
   }
 
 
+  sortByDate(): void {
+    this.issues = this.tableDataService.sortByDate(this.issues);
+  }
+
+  sortbyMounth() {
+    alert('january');
+  }
 }

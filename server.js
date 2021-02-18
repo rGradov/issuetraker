@@ -26,7 +26,7 @@ function verifyToken(token) {
 
 // Check if the user exists in database
 function isAuthenticated({email, password}) {
-  return userdb.users.findIndex(user => user.email === email && user.password === password) !== -1
+  return userdb.users.findIndex(user => user.email === email ) !== -1
 }
 
 server.get('/api/users', (req, res) => {
@@ -42,7 +42,7 @@ server.post('/api/issues', (req, res) => {
   const body = req.body;
   const newIssue = {...body}
   issuesdb.issues.push(newIssue)
-  return res.status(201).json({issues: issuesdb.issues})
+  return res.status(202).json({issues: issuesdb.issues})
 })
 // Register New User
 server.post('/auth/register', (req, res) => {
@@ -131,7 +131,7 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
 server.use(router)
 
 server.listen(3000, () => {
-  console.log('Run Auth API Server')
+  console.log('Run server on port 3000')
 })
 
 

@@ -19,7 +19,7 @@
           <span>comment</span>
         </div>
         <div class="date">
-          <span>date</span>
+          <span (click)="sortByDate()">date</span>
         </div>
         <div class="status">
           <span (click)="sortByStatus()">status</span>
@@ -43,6 +43,7 @@
         [date]='issue.date'
         [status]="issue.status"
         [index]="idx"
+        [comments]="issue.comments"
         (changeIdEmmit)="hideIssue($event)"
       ></app-table-body-item>
     </li>

@@ -13,12 +13,21 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
+  Register(email: string, password: string): any {
+    return this.http.post<User>('http://localhost:3000/auth/register/', {email, password})
+      .subscribe((data: any) => {
+        console.log(data);
+        this.router.navigate(['']);
+        localStorage.setItem('auth_token', data['access_token']);
+
+      }, error => this.authErr = error.message);
+  }
+
   login(email: string, password: string) {
 
     return this.http.post<User>('http://localhost:3000/auth/login', {email, password})
       .subscribe(
         (data: any) => {
-          console.log(data);
           this.router.navigate(['']);
           localStorage.setItem('auth_token', data['access_token']);
         },
