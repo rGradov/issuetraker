@@ -64,6 +64,14 @@ body {
   .description {
     @include item(30%)
   }
+  .comment {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    @include item(15%);
+
+  }
+
   .date {
     @include item(10%)
   }

@@ -11,7 +11,8 @@ export class TableDataService {
   private countSort = 0;
 
   private countStatus = 0;
-
+  private coments: string;
+  private id:number;
 
   constructor(private http: HttpClient) {
   }
@@ -54,5 +55,10 @@ export class TableDataService {
 
   hideIssue(arr: Array<Issue>, id: number): Array<Issue> {
     return arr.splice(id, 1);
+  }
+
+  comment(coment: string, id: number) {
+    this.coments = coment;
+    this.id = id;
   }
 }

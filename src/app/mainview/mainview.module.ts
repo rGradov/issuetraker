@@ -9,6 +9,7 @@ import { FilterPipe } from './header/pipes/filter.pipe';
 import { DropdownComponent } from './table/table-body/table-body-item/dropdown/dropdown.component';
 import { ByStatusComponent } from './table/table-chekbox/sort/by-status/by-status.component';
 import { MainviewComponent } from './mainview/mainview.component';
+import { AddCommentComponent } from './table/table-body/table-body-item/add-comment/add-comment.component';
 
 @NgModule({
   declarations: [TableComponent,
@@ -18,7 +19,8 @@ import { MainviewComponent } from './mainview/mainview.component';
     FilterPipe,
     DropdownComponent,
     ByStatusComponent,
-    MainviewComponent],
+    MainviewComponent,
+    AddCommentComponent],
   imports: [
     CommonModule,
     FormsModule,

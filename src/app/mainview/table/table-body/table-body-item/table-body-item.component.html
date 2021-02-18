@@ -11,6 +11,17 @@
   <div class="description">
     <span>{{description}}</span>
   </div>
+  <div class="comment">
+    <div *ngFor="let coment of comments">
+     <span>
+        {{coment}}
+      </span>
+    </div>
+  </div>
+  <div>
+      <img (click)="openInputComent=!openInputComent"
+           src="./assets/pending-black-18dp.svg" alt="">
+  </div>
   <div class="date">
     <span>{{date |date}}</span>
   </div>
@@ -21,7 +32,13 @@
           'done'      : status === 'done'
 }">{{status}}
      </span>
-    <button (click)="hideIssue()" >X</button>
-
+    <img src="./assets/highlight_off-black-18dp.svg"
+         *ngIf="authServ.logIn" (click)="hideIssue()">
   </div>
+
+
+</div>
+<div>
+  <app-add-comment *ngIf="!openInputComent" [id]="index" (onchanged)="AddComent($event)"></app-add-comment>
+
 </div>
