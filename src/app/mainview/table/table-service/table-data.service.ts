@@ -66,8 +66,10 @@ export class TableDataService {
   }
 
   hideIssue(arr: Array<Issue>, id: number): Array<Issue> {
-    arr.splice(id, 1);
-    return arr;
+    arr.filter(issue => issue.id < id && issue.id > id);
+    // arr.splice(id, 1);
+    return arr.filter(issue => issue.id < id).concat(
+      arr.filter(issue => issue.id > id));
   }
 
   comment(coment: string, id: number) {

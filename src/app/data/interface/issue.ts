@@ -1,4 +1,5 @@
 export interface Issue {
+  id: number,
   userinfo: string;
   location: string;
   issueSeverity: number;

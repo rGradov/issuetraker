@@ -42,7 +42,7 @@
         [description]="issue.description"
         [date]='issue.date'
         [status]="issue.status"
-        [index]="idx"
+        [index]="issue.id"
         [comments]="issue.comments"
         (changeIdEmmit)="hideIssue($event)"
       ></app-table-body-item>
