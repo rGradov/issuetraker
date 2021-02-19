@@ -1,0 +1,40 @@
+<form [formGroup]="form">
+  <fieldset>
+    <legend>Register</legend>
+    <div class="form-field">
+      <label>Email:</label>
+      <input name="email" formControlName="email" >
+      <div class="alert alert-danger"
+           *ngIf="form.controls['email'].invalid && (
+           form.controls['email'].dirty || form.controls['email'].touched)">
+        <p >Input correct email</p>
+      </div>
+    </div>
+    <div class="form-field">
+      <label>Password:</label>
+      <input name="password" formControlName="password"
+             type="password">
+
+      <div
+        *ngIf="form.controls['password'].invalid && form.controls['password'].touched"
+        class="invalid">
+        <p>Input correct password</p>
+      </div>
+    </div>
+    <div
+      *ngIf="err"
+      class="invalid">
+      <p>{{err}}</p>
+    </div>
+    <div class="form-field">
+      <label>Password:</label>
+      <input name="password" formControlName="repassword"
+             type="password">
+    </div>
+  </fieldset>
+  <div class="form-buttons">
+    <button class="button button-primary"
+            (click)="Register()" >Login</button>
+  </div>
+</form>
+
