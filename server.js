@@ -14,7 +14,7 @@ const SECRET_KEY = '123456789'
 
 const expiresIn = '1h'
 
-// Create a token from a payload
+// Create token
 function createToken(payload) {
   return jwt.sign({email: payload.email}, SECRET_KEY, {expiresIn})
 }
@@ -26,7 +26,7 @@ function verifyToken(token) {
 
 // Check if the user exists in database
 function isAuthenticated({email, password}) {
-  return userdb.users.findIndex(user => user.email === email ) !== -1
+  return userdb.users.findIndex(user => user.email === email && user.password === password) !== -1
 }
 
 server.get('/api/users', (req, res) => {
@@ -42,8 +42,19 @@ server.post('/api/issues', (req, res) => {
   const body = req.body;
   const newIssue = {...body}
   issuesdb.issues.push(newIssue)
+
   return res.status(202).json({issues: issuesdb.issues})
 })
+// server.post('/api/issues', (req, res) => {
+//   const body = req.body;
+//   const update = {...body}
+//   issuesdb.issues.map((elem) => {
+//     if (update.id === elem.id) {
+//       elem.status === update.status
+//     }
+//   })
+//   return res.status(204).json({issues: issuesdb.issues})
+// })
 // Register New User
 server.post('/auth/register', (req, res) => {
   console.log("register endpoint called; request body:");
@@ -63,8 +74,7 @@ server.post('/auth/register', (req, res) => {
       const message = err
       res.status(status).json({status, message})
       return
-    }
-    ;
+    };
 
     // Get current users data
     var data = JSON.parse(data.toString());
@@ -83,7 +93,6 @@ server.post('/auth/register', (req, res) => {
       }
     });
   });
-
 // Create token for new user
   const access_token = createToken({email, password})
   console.log("Access Token:" + access_token);

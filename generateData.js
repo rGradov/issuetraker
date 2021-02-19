@@ -7,7 +7,7 @@ const sev = [1, 2, 3, 4];
 const st = ['done', 'in progress', 'not started'];
 const comments = ['coment1', 'comment2', '', '', '', '', '', '', '', '', '', '', '', '', '']
 comments[20] = '';
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 61; i++) {
 
   dataBase.issues.push({
     id:i,

@@ -28,7 +28,7 @@ export class TableBodyComponent implements OnInit {
 
   private getIssues(): void {
     this.tableDataService.getIssues().subscribe((issues) => {
-      this.issues = issues['issues'];
+      this.issues = issues;
     }, (err) => this.err = err.statusText);
   }
 
@@ -42,7 +42,9 @@ export class TableBodyComponent implements OnInit {
   }
 
   hideIssue($event: number): void {
-    this.issues = this.tableDataService.hideIssue(this.issues, $event);
+    this.tableDataService.hideIssue($event).subscribe(() => {
+      this.issues = this.issues.filter(selected => selected.id !== $event);
+    });
   }
 
 

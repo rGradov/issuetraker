@@ -65,15 +65,20 @@ export class TableDataService {
     return (arr1.concat(arr2)).concat(arr3);
   }
 
-  hideIssue(arr: Array<Issue>, id: number): Array<Issue> {
-    arr.filter(issue => issue.id < id && issue.id > id);
-    // arr.splice(id, 1);
-    return arr.filter(issue => issue.id < id).concat(
-      arr.filter(issue => issue.id > id));
+  hideIssue(id: number): any {
+    // arr.filter(issue => issue.id < id && issue.id > id);
+    // // arr.splice(id, 1);
+    // return arr.filter(issue => issue.id < id).concat(
+    //   arr.filter(issue => issue.id > id));
+    return this.http.delete(`${baseUrl}issues/${id}`);
   }
 
   comment(coment: string, id: number) {
     this.coments = coment;
     this.id = id;
+  }
+
+  addComment(issue: any, id: number) {
+    return this.http.put(`${baseUrl}issues/${id}`, issue);
   }
 }
