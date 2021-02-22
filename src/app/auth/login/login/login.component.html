@@ -8,8 +8,14 @@
           <p>Input correct email</p>
         </div>
         <input type="password" placeholder="password" formControlName="password"/>
-        <button class="button button-primary"
-                (click)="login()">login</button>
+        <div class="alert alert-danger"
+             *ngIf="form.controls['password'].invalid && form.controls['password'].touched">
+          <p>Input correct password</p>
+        </div>
+        <button class="btn btn-primary btn-lg"
+                (click)="login()" [disabled]="form.invalid" [ngClass]="{
+                 'disabled': form.invalid
+                }">login</button>
         <p class="message">Not registered? <a routerLinkActive="active" [routerLink]="['/register']">Create an account</a></p>
       </form>
     </div>
