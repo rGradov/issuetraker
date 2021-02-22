@@ -24,10 +24,16 @@ export class LoginComponent {
   login(): void {
     const val = this.form.value;
 
+    this.err = this.authService.authErr;
 
     if (val.email && val.password) {
       this.authService.login(val.email, val.password);
       this.err = this.authService.authErr;
+
     }
+  }
+
+  close() {
+    this.err = '';
   }
 }
