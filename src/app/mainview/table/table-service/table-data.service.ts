@@ -20,6 +20,9 @@ export class TableDataService {
   getIssues(): Observable<Issue[]> {
     return this.http.get<Issue[]>(`${baseUrl}issues`);
   }
+  getSomeIssues():Observable<Issue[]>{
+    return this.http.get<Issue[]>(`${baseUrl}issues?userinfo=${localStorage.getItem('email')}`)
+  }
 
   sortByIssueSeverity(arr: Array<Issue>): Array<Issue> {
     if (this.countSort % 2 === 0) {

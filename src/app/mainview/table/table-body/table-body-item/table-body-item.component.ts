@@ -1,5 +1,5 @@
 import {
-  Component, Input, OnInit, Output, EventEmitter,
+  Component, Input, OnInit, Output, EventEmitter, ViewChild,
 } from '@angular/core';
 import {AuthService} from '../../../../auth/auth.service';
 import {TableDataService} from '../../table-service/table-data.service';
@@ -10,6 +10,7 @@ import {TableDataService} from '../../table-service/table-data.service';
   styleUrls: ['./table-body-item.component.scss'],
 })
 export class TableBodyItemComponent implements OnInit {
+  successAlert = false;
   @Input() userinfo: string;
   @Input() location: string;
   @Input() issueSeverity: number;
@@ -31,11 +32,10 @@ export class TableBodyItemComponent implements OnInit {
 
   }
 
-
   hideIssue(): void {
-    if (confirm(`delete issue?${this.userinfo}`)) {
+
       this.changeIdEmmit.emit(this.index);
-    }
+
   }
 
   AddComent($event: string) {
@@ -52,7 +52,9 @@ export class TableBodyItemComponent implements OnInit {
       comments: this.comments
     };
     this.tableData.addComment(this.issue, this.index).subscribe()
-   ;
+    ;
     this.openInputComent = !this.openInputComent;
   }
+
+
 }

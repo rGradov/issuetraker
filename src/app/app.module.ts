@@ -11,13 +11,14 @@ import {TokenInterceptor} from './auth/token.interceptor';
 import { StatsPageComponent } from './stats/stats-page/stats-page.component';
 import {ChartsModule} from 'ng2-charts';
 import { PieStatusComponent } from './stats/stats-page/pie-status/pie-status.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     StatsPageComponent,
-    PieStatusComponent,
+    PieStatusComponent
 
   ],
   imports: [
@@ -26,7 +27,8 @@ import { PieStatusComponent } from './stats/stats-page/pie-status/pie-status.com
     MainViewModule,
     AuthModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    NgbModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

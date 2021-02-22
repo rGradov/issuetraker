@@ -23,11 +23,21 @@ export class TableBodyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getIssues();
+    if (localStorage.getItem('email') === 'mainrudenua@gmail.com'){
+      this.getIssues();
+    } else {
+      this.getSomeIssues();
+    }
+
   }
 
   private getIssues(): void {
     this.tableDataService.getIssues().subscribe((issues) => {
+      this.issues = issues;
+    }, (err) => this.err = err.statusText);
+  }
+  private  getSomeIssues(){
+    this.tableDataService.getSomeIssues().subscribe((issues) => {
       this.issues = issues;
     }, (err) => this.err = err.statusText);
   }

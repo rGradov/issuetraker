@@ -18,6 +18,7 @@ export class AuthService {
       .subscribe((data: any) => {
         console.log(data);
         this.router.navigate(['']);
+        localStorage.setItem('email',email);
         localStorage.setItem('auth_token', data['access_token']);
 
       }, error => this.authErr = error.message);
@@ -29,6 +30,7 @@ export class AuthService {
       .subscribe(
         (data: any) => {
           this.router.navigate(['']);
+          localStorage.setItem('email',email);
           localStorage.setItem('auth_token', data['access_token']);
         },
         error => this.authErr = error.message);

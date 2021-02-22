@@ -10,6 +10,7 @@ import { DropdownComponent } from './table/table-body/table-body-item/dropdown/d
 import { ByStatusComponent } from './table/table-chekbox/sort/by-status/by-status.component';
 import { MainviewComponent } from './mainview/mainview.component';
 import { AddCommentComponent } from './table/table-body/table-body-item/add-comment/add-comment.component';
+import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [TableComponent,
@@ -21,10 +22,11 @@ import { AddCommentComponent } from './table/table-body/table-body-item/add-comm
     ByStatusComponent,
     MainviewComponent,
     AddCommentComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        NgbAlertModule,
+    ],
   exports: [MainviewComponent],
 })
 export class MainViewModule { }

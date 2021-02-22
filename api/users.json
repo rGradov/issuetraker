@@ -1,1 +1,19 @@
-{"users":[{"id":1,"email":"mainrudenua@gmail.com","password":"rGradov99"},{"id":3,"email":"nilson@email.com","password":"nilson"},{"id":4,"email":"olivier@mail.com","password":"bestPassw0rd"},{"id":5,"email":"olivier@mail.com","password":"bestPassw0rd2"},{"id":6,"email":"olivier@mail.com","password":"bestPassw02rd2"},{"id":7,"email":"asdas"},{"id":8,"email":"asasd"},{"id":9,"email":"mainrudsenuas@gmail.com","password":"rGradov9s9"},{"id":10,"email":"+375256395027","password":"dsadvczcxv"},{"id":11,"email":"nils2on@email.com","password":"nilson"},{"id":12,"email":"mainrudenua@gmail.com","password":"rudenua99"},{"id":13,"email":"mainrudenua@gmail.com","password":"23141412"},{"id":14,"email":"mainrudenua@gmail.com","password":"qwert1"},{"id":15,"email":"mainrudenua@gmail.com","password":"213124"},{"id":16,"email":"nils2on@email.com","password":"nisdalson"},{"id":17,"email":"mainrudenua@gmail.com","password":"rGradov99213"},{"id":18,"email":"mainrudenua@gmail.com","password":"asdsadasd"},{"id":19,"email":"mainrudenua@gmail.com","password":"asd"},{"id":20,"email":"mainrudenua@gmail.com","password":"asd"},{"id":21,"email":"mainrudenua@gmail.com","password":"VladRudenua1A"},{"id":22,"email":"mainrudenua@gmail.com","password":"123qwe"},{"id":23,"email":"mainmain@gmail.com","password":"123qwe"},{"id":24},{"id":25,"email":"mainrudenua12@gmail.com","password":"123qwe"},{"id":26,"email":"mainrudenua3@gmail.com","password":"123qwe"},{"id":27,"email":"VladRudenua@gmail.com","password":"qwe123"}]}
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "mainrudenua@gmail.com",
+      "password": "rGradov99"
+    },
+    {
+      "id": 3,
+      "email": "nilson@email.com",
+      "password": "nilson"
+    },
+    {
+      "id": 4,
+      "email": "olivier@mail.com",
+      "password": "bestPassw0rd"
+    }
+  ]
+}
