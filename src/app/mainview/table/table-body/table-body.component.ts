@@ -23,7 +23,7 @@ export class TableBodyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.tableDataService.isAdmin()){
+    if (this.tableDataService.isAdmin()) {
       this.getIssues();
     } else {
       this.getSomeIssues();
@@ -36,7 +36,8 @@ export class TableBodyComponent implements OnInit {
       this.issues = issues;
     }, (err) => this.err = err.statusText);
   }
-  private  getSomeIssues(){
+
+  private getSomeIssues() {
     this.tableDataService.getSomeIssues().subscribe((issues) => {
       this.issues = issues;
     }, (err) => this.err = err.statusText);
@@ -63,4 +64,7 @@ export class TableBodyComponent implements OnInit {
   }
 
 
+  onAddIssue($event: Issue): void {
+    this.issues.push($event);
+  }
 }

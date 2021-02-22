@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {TableDataService} from '../../table-service/table-data.service';
 import {AuthService} from '../../../../auth/auth.service';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import {Issue} from '../../../../data/interface/issue';
 
 @Component({
   selector: 'app-add-issue',
@@ -16,6 +17,7 @@ export class AddIssueComponent implements OnInit {
   isAdmin: boolean;
   userEmail: string;
   model: NgbDateStruct;
+  @Output() onChangeIssue = new EventEmitter<Issue>();
 
   constructor(private fb: FormBuilder,
               public tableDataService: TableDataService,
@@ -57,9 +59,10 @@ export class AddIssueComponent implements OnInit {
     const formData = {...this.rFrom.value};
     formData.id = this.issueLength + 1;
     formData.comments = [];
-    formData.date = new Date(this.model.year,this.model.month,this.model.day);
+    formData.date = new Date(this.model.year, this.model.month, this.model.day);
     console.log(formData);
     this.tableDataService.addIssue(formData).subscribe();
+    this.onChangeIssue.emit(formData);
     this.tableDataService.openInput = !this.tableDataService.openInput;
   }
 }

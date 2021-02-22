@@ -29,7 +29,7 @@
     </li>
   </ul>
 </div>
-<app-add-issue></app-add-issue>
+<app-add-issue (onChangeIssue)="onAddIssue($event)"></app-add-issue>
 <div class="table_body">
   <h1 *ngIf="err" >{{err}}</h1>
   <ul>

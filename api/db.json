@@ -7,7 +7,7 @@
       "issueSeverity": 4,
       "date": "2020-01-01T19:06:10.849Z",
       "description": "panel application pixel",
-      "status": "not started",
+      "status": "in progress",
       "comments": [
         ""
       ]
@@ -79,7 +79,7 @@
       "issueSeverity": 4,
       "date": "2020-01-03T04:22:35.084Z",
       "description": "protocol panel panel",
-      "status": "in progress",
+      "status": "not started",
       "comments": [
         ""
       ]
@@ -127,7 +127,7 @@
       "issueSeverity": 4,
       "date": "2020-01-03T04:19:42.545Z",
       "description": "program array protocol",
-      "status": "in progress",
+      "status": "not started",
       "comments": [
         ""
       ]
@@ -139,7 +139,7 @@
       "issueSeverity": 3,
       "date": "2020-01-02T17:49:55.971Z",
       "description": "matrix driver program",
-      "status": "in progress",
+      "status": "not started",
       "comments": [
         ""
       ]
@@ -175,7 +175,7 @@
       "issueSeverity": 4,
       "date": "2020-01-04T10:26:07.502Z",
       "description": "panel driver bandwidth",
-      "status": "in progress",
+      "status": "not started",
       "comments": [
         "comment2"
       ]
@@ -187,7 +187,7 @@
       "issueSeverity": 4,
       "date": "2020-01-04T10:45:31.719Z",
       "description": "protocol capacitor port",
-      "status": "in progress",
+      "status": "not started",
       "comments": [
         "coment1"
       ]
@@ -199,7 +199,7 @@
       "issueSeverity": 1,
       "date": "2020-01-01T15:25:50.566Z",
       "description": "bandwidth panel circuit",
-      "status": "in progress",
+      "status": "not started",
       "comments": [
         ""
       ]
@@ -211,7 +211,7 @@
       "issueSeverity": 1,
       "date": "2020-01-03T22:59:44.996Z",
       "description": "microchip bus monitor",
-      "status": "in progress",
+      "status": "not started",
       "comments": [
         ""
       ]
@@ -249,23 +249,23 @@
       "date": "2021-02-22T18:52:39.023Z"
     },
     {
-      "description": "test value for date",
-      "userinfo": "mainrudenua@gmail.com",
-      "issueSeverity": "3",
-      "location": "home",
-      "status": "in progress",
-      "date": "2010-12-17T21:00:00.000Z",
       "id": 25,
+      "userinfo": "mainrudenua@gmail.com",
+      "location": "home",
+      "issueSeverity": "3",
+      "date": "2010-12-17T21:00:00.000Z",
+      "description": "test value for date",
+      "status": "not started",
       "comments": []
     },
     {
-      "description": "testing",
-      "userinfo": "nilson@email.com",
-      "issueSeverity": "2",
-      "location": "home",
-      "status": "in progress",
-      "date": "2021-03-24T21:00:00.000Z",
       "id": 26,
+      "userinfo": "nilson@email.com",
+      "location": "home",
+      "issueSeverity": "2",
+      "date": "2021-03-24T21:00:00.000Z",
+      "description": "testing",
+      "status": "not started",
       "comments": []
     },
     {
@@ -275,7 +275,27 @@
       "issueSeverity": "4",
       "date": "2015-03-04T21:00:00.000Z",
       "description": "making wi-fi",
-      "status": "in progress",
+      "status": "not started",
+      "comments": []
+    },
+    {
+      "id": 28,
+      "userinfo": "olivier@mail.com",
+      "location": "police department",
+      "issueSeverity": "3",
+      "date": "2021-03-16T21:00:00.000Z",
+      "description": "test dist",
+      "status": "done",
+      "comments": []
+    },
+    {
+      "description": "test",
+      "userinfo": "nilson@email.com",
+      "issueSeverity": "3",
+      "location": "university",
+      "status": "done",
+      "date": "2021-03-18T21:00:00.000Z",
+      "id": 29,
       "comments": []
     }
   ]
