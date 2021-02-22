@@ -6,6 +6,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuard} from './auth/auth.guard';
 import {RegisterComponent} from './auth/register/register.component';
 import {StatsPageComponent} from './stats/stats-page/stats-page.component';
+import {AddIssueComponent} from './mainview/table/table-body/add-issue/add-issue.component';
 
 const routes: Routes = [
   {path: '', component: MainviewComponent},
@@ -14,7 +15,11 @@ const routes: Routes = [
     path: 'stats', component: StatsPageComponent,
     canActivate: [AuthGuard]
   },
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {
+    path: 'add', component: AddIssueComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

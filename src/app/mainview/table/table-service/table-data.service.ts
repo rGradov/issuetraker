@@ -13,15 +13,21 @@ export class TableDataService {
   private countStatus = 0;
   private coments: string;
   private id: number;
+  openInput = false;
 
   constructor(private http: HttpClient) {
+  }
+
+  getUsers(): Observable<any> {
+    return this.http.get<any>(`${baseUrl}api/users`);
   }
 
   getIssues(): Observable<Issue[]> {
     return this.http.get<Issue[]>(`${baseUrl}issues`);
   }
-  getSomeIssues():Observable<Issue[]>{
-    return this.http.get<Issue[]>(`${baseUrl}issues?userinfo=${localStorage.getItem('email')}`)
+
+  getSomeIssues(): Observable<Issue[]> {
+    return this.http.get<Issue[]>(`${baseUrl}issues?userinfo=${localStorage.getItem('email')}`);
   }
 
   sortByIssueSeverity(arr: Array<Issue>): Array<Issue> {
@@ -83,5 +89,17 @@ export class TableDataService {
 
   addComment(issue: any, id: number) {
     return this.http.put(`${baseUrl}issues/${id}`, issue);
+  }
+
+  addIssue(issue: any) {
+    return this.http.post(`${baseUrl}issues/`, issue);
+  }
+
+  isAdmin(): boolean {
+    if (localStorage.getItem('email') === 'mainrudenua@gmail.com') {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

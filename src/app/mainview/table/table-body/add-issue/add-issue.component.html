@@ -1,0 +1,53 @@
+<ng-container *ngIf="tableDataService.openInput">
+  <form [formGroup]="rFrom" (ngSubmit)="submit()" class="item">
+    <div class="userinfo">
+      <div class="input-group mb-3 ">
+        <select class="custom-select" id="inputGroupSelect01"
+                formControlName="userinfo">
+        <ng-container *ngIf="isAdmin; else currentUser">
+          <ng-container *ngFor="let user of users.users">
+            <option [value]=[user.email]>{{user.email}}</option>
+          </ng-container>
+        </ng-container>
+          <ng-template #currentUser>
+            <option [value]=[userEmail]>{{userEmail}}</option>
+          </ng-template>
+        </select>
+      </div>
+    </div>
+    <div class="location">
+      <input type="text" class="form-control"
+             id="exampleFormControlInput1" placeholder="home"
+             formControlName="location">
+    </div>
+    <div class="issueSeverity">
+      <select class="form-control" id="exampleFormControlSelect1"
+              formControlName="issueSeverity"
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+    <div class="description">
+    <textarea class="form-control" formControlName="description"
+              id="exampleFormControlTextarea2" rows="1"></textarea>
+    </div>
+    <div class="comment"></div>
+    <div class="date"></div>
+    <div class="status">
+      <select class="form-control"
+              formControlName="status"
+      >
+        <option value="done">done</option>
+        <option value="in progress">in progress</option>
+        <option value="not started">not started</option>
+      </select>
+    </div>
+    <div class="mainbutton">
+      <button class="btn btn-primary btn-sm" type="submit">Добавить</button>
+    </div>
+  </form>
+
+</ng-container>

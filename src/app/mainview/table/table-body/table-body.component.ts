@@ -23,7 +23,7 @@ export class TableBodyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (localStorage.getItem('email') === 'mainrudenua@gmail.com'){
+    if (this.tableDataService.isAdmin()){
       this.getIssues();
     } else {
       this.getSomeIssues();
@@ -62,7 +62,5 @@ export class TableBodyComponent implements OnInit {
     this.issues = this.tableDataService.sortByDate(this.issues);
   }
 
-  sortbyMounth() {
-    alert('january');
-  }
+
 }

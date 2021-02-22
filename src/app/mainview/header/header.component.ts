@@ -1,6 +1,7 @@
 import {
   Component, Input, OnInit, Output, EventEmitter,
 } from '@angular/core';
+import {TableDataService} from '../table/table-service/table-data.service';
 
 @Component({
   selector: 'app-header',
@@ -17,9 +18,13 @@ export class HeaderComponent implements OnInit {
     this.searchChange.emit(model);
   }
 
-  constructor() {
+  constructor(private tb: TableDataService) {
   }
 
   ngOnInit(): void {
+  }
+
+  openAddItem() {
+    this.tb.openInput = !this.tb.openInput;
   }
 }
