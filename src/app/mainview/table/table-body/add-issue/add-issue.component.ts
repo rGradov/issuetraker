@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {TableDataService} from '../../table-service/table-data.service';
 import {AuthService} from '../../../../auth/auth.service';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-issue',
@@ -11,9 +12,10 @@ import {AuthService} from '../../../../auth/auth.service';
 export class AddIssueComponent implements OnInit {
   rFrom: FormGroup;
   users: any = [];
-  issueLength =0;
+  issueLength = 0;
   isAdmin: boolean;
   userEmail: string;
+  model: NgbDateStruct;
 
   constructor(private fb: FormBuilder,
               public tableDataService: TableDataService,
@@ -34,7 +36,8 @@ export class AddIssueComponent implements OnInit {
       userinfo: new FormControl('',),
       issueSeverity: new FormControl('', Validators.required),
       location: new FormControl('', Validators.required),
-      status: new FormControl('not started', Validators.required)
+      status: new FormControl('not started', Validators.required),
+      date: new FormControl('', Validators.required)
     });
   }
 
@@ -54,7 +57,7 @@ export class AddIssueComponent implements OnInit {
     const formData = {...this.rFrom.value};
     formData.id = this.issueLength + 1;
     formData.comments = [];
-    formData.date = new Date();
+    formData.date = new Date(this.model.year,this.model.month,this.model.day);
     console.log(formData);
     this.tableDataService.addIssue(formData).subscribe();
     this.tableDataService.openInput = !this.tableDataService.openInput;

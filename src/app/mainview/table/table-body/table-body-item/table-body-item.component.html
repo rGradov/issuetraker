@@ -1,4 +1,3 @@
-
 <div class="item">
   <div class="UserInfo">
     <span>{{userinfo}}</span>
@@ -27,14 +26,50 @@
     <span>{{date |date}}</span>
   </div>
   <div class="status">
-    <span [ngClass]="{
+    <!--    <div ngbDropdown #myDrop="ngbDropdown">-->
+    <!--    <span id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()"-->
+    <!--      [ngClass]="{-->
+    <!--          'notStarted': status === 'not started',-->
+    <!--          'inProgress': status === 'in progress',-->
+    <!--          'done'      : status === 'done'-->
+    <!--}"-->
+    <!--    >{{status}}-->
+    <!--</>!&#45;&#45;     </span>&ndash;&gt;-->
+    <!--      <div ngbDropdownMenu aria-labelledby="dropdownManual">-->
+    <!--        <button ngbDropdownItem>Action - 1</button>-->
+    <!--        <button ngbDropdownItem>Another Action</button>-->
+    <!--        <button ngbDropdownItem>Something else is here</button>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown"
+         *ngIf="status!=='done'; else elseBlock">
+      <button
+        id="dropdownManual"
+        ngbDropdownAnchor
+        (focus)="myDrop.open()"
+        [ngClass]="{
           'notStarted': status === 'not started',
           'inProgress': status === 'in progress',
           'done'      : status === 'done'
-}">{{status}}
-     </span>
+}"
+      >{{status}}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownManual">
+        <button ngbDropdownItem (click)="statusDone()">done</button>
+        <button ngbDropdownItem (click)="statusInProgress()">in progress</button>
+        <button ngbDropdownItem (click)="statusNotStarted()">not started</button>
+      </div>
+    </div>
+    <ng-template #elseBlock>
+      <button
+        [ngClass]="{
+          'notStarted': status === 'not started',
+          'inProgress': status === 'in progress',
+          'done'      : status === 'done'
+}"
+      >{{status}}</button>
+    </ng-template>
     <img src="./assets/highlight_off-black-18dp.svg"
-         *ngIf="authServ.logIn" (click)="hideIssue()">
+         *ngIf="authServ.isAdmin()" (click)="hideIssue()">
   </div>
 
 </div>
@@ -44,5 +79,5 @@
                    (onchanged)="AddComent($event)">
 
   </app-add-comment>
-<!--  <ngb-datepicker></ngb-datepicker>-->
+  <!--  <ngb-datepicker></ngb-datepicker>-->
 </div>

@@ -9,7 +9,7 @@ import { FilterPipe } from './header/pipes/filter.pipe';
 import { ByStatusComponent } from './table/table-chekbox/sort/by-status/by-status.component';
 import { MainviewComponent } from './mainview/mainview.component';
 import { AddCommentComponent } from './table/table-body/table-body-item/add-comment/add-comment.component';
-import {NgbAlertModule, NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbAlertModule, NgbDatepickerModule, NgbDropdownModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import { AddIssueComponent } from './table/table-body/add-issue/add-issue.component';
 
 @NgModule({
@@ -22,13 +22,15 @@ import { AddIssueComponent } from './table/table-body/add-issue/add-issue.compon
     MainviewComponent,
     AddCommentComponent,
     AddIssueComponent],
-    imports: [
-        CommonModule,
-        FormsModule,
-        NgbAlertModule,
-        ReactiveFormsModule,
-        NgbDatepickerModule,
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgbAlertModule,
+    ReactiveFormsModule,
+    NgbDatepickerModule,
+    NgbTooltipModule,
+    NgbDropdownModule,
+  ],
   exports: [MainviewComponent],
 })
 export class MainViewModule { }

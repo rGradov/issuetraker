@@ -34,7 +34,7 @@ export class TableBodyItemComponent implements OnInit {
 
   hideIssue(): void {
 
-      this.changeIdEmmit.emit(this.index);
+    this.changeIdEmmit.emit(this.index);
 
   }
 
@@ -57,4 +57,48 @@ export class TableBodyItemComponent implements OnInit {
   }
 
 
+  statusDone() {
+    this.status = 'done';
+    this.issue = {
+      id: this.index,
+      userinfo: this.userinfo,
+      location: this.location,
+      issueSeverity: this.issueSeverity,
+      date: this.date,
+      description: this.description,
+      status: this.status,
+      comments: this.comments
+    };
+    this.tableData.statusDone(this.issue, this.index).subscribe();
+  }
+
+  statusInProgress() {
+    this.status = 'in progress';
+    this.issue = {
+      id: this.index,
+      userinfo: this.userinfo,
+      location: this.location,
+      issueSeverity: this.issueSeverity,
+      date: this.date,
+      description: this.description,
+      status: this.status,
+      comments: this.comments
+    };
+    this.tableData.statusDone(this.issue, this.index).subscribe();
+  }
+
+  statusNotStarted() {
+    this.status = 'not started';
+    this.issue = {
+      id: this.index,
+      userinfo: this.userinfo,
+      location: this.location,
+      issueSeverity: this.issueSeverity,
+      date: this.date,
+      description: this.description,
+      status: this.status,
+      comments: this.comments
+    };
+    this.tableData.statusDone(this.issue, this.index).subscribe();
+  }
 }

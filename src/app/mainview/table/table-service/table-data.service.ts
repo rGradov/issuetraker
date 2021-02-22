@@ -90,6 +90,15 @@ export class TableDataService {
   addComment(issue: any, id: number) {
     return this.http.put(`${baseUrl}issues/${id}`, issue);
   }
+  statusDone(issue:any,id:number){
+    return this.http.put(`${baseUrl}issues/${id}`, issue);
+  }
+  statusNotStarted(issue:any,id:number){
+    return this.http.put(`${baseUrl}issues/${id}`, issue);
+  }
+  statusInProgress(issue:any,id:number){
+    return this.http.put(`${baseUrl}issues/${id}`, issue);
+  }
 
   addIssue(issue: any) {
     return this.http.post(`${baseUrl}issues/`, issue);
