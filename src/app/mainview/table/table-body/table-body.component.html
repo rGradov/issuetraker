@@ -31,7 +31,9 @@
 </div>
 <app-add-issue (onChangeIssue)="onAddIssue($event)"></app-add-issue>
 <div class="table_body">
-  <h1 *ngIf="err" >{{err}}</h1>
+<div *ngIf="err">
+  <ngb-alert type="danger" (closed)="close()">You should login/or register to display Issues</ngb-alert>
+</div>
   <ul>
     <li *ngFor="let issue of issues|filter:search;let idx = index">
       <app-table-body-item

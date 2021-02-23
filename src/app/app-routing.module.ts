@@ -19,6 +19,9 @@ const routes: Routes = [
   {
     path: 'add', component: AddIssueComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: '**', redirectTo: ''
   }
 ];
 

@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 import {Issue} from '../../../data/interface/issue';
 import {TableDataService} from '../table-service/table-data.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-table-body',
@@ -19,7 +20,7 @@ export class TableBodyComponent implements OnInit {
 
   @Output() searchChange = new EventEmitter<string>();
 
-  constructor(private tableDataService: TableDataService) {
+  constructor(private tableDataService: TableDataService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -31,6 +32,11 @@ export class TableBodyComponent implements OnInit {
 
   }
 
+  close(): void {
+    this.err = '';
+    // setTimeout(() => this.router.navigate(['/login']), 200);
+
+  }
 
   private getIssues(): void {
     this.tableDataService.getIssues().subscribe((issues) => {

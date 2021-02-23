@@ -56,7 +56,11 @@
         <option value="not started">not started</option>
       </select>
       <div class="mainbutton">
-        <button   class="btn btn-primary btn-sm" type="submit">Добавить</button>
+        <button   class="btn btn-primary btn-sm" type="submit"
+                  [disabled]="rFrom.invalid" [ngClass]="{
+                 'disabled': rFrom.invalid
+                }"
+        >Добавить</button>
       </div>
     </div>
 

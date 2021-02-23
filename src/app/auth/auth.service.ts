@@ -38,9 +38,10 @@ export class AuthService {
         error => this.authErr = error.message);
   }
 
-  logout() {
+  logout(): void {
     localStorage.removeItem('auth_token');
     localStorage.removeItem('email');
+    this.router.navigate(['/home']);
   }
 
   get logIn(): boolean {

@@ -34,8 +34,8 @@ export class AddIssueComponent implements OnInit {
 
   initForm() {
     this.rFrom = this.fb.group({
-      description: new FormControl('',),
-      userinfo: new FormControl('',),
+      description: new FormControl('', Validators.required),
+      userinfo: new FormControl('') ,
       issueSeverity: new FormControl('', Validators.required),
       location: new FormControl('', Validators.required),
       status: new FormControl('not started', Validators.required),
@@ -60,7 +60,6 @@ export class AddIssueComponent implements OnInit {
     formData.id = this.issueLength + 1;
     formData.comments = [];
     formData.date = new Date(this.model.year, this.model.month, this.model.day);
-    console.log(formData);
     this.tableDataService.addIssue(formData).subscribe();
     this.onChangeIssue.emit(formData);
     this.tableDataService.openInput = !this.tableDataService.openInput;

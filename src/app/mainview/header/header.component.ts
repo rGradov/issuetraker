@@ -2,6 +2,7 @@ import {
   Component, Input, OnInit, Output, EventEmitter,
 } from '@angular/core';
 import {TableDataService} from '../table/table-service/table-data.service';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,19 +10,20 @@ import {TableDataService} from '../table/table-service/table-data.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() search:string;
-
+  @Input() search: string;
+  isLogin: boolean;
   @Output() searchChange = new EventEmitter<string>();
 
-  onSearchChange(model:string) {
-    this.search =model;
+  onSearchChange(model: string) {
+    this.search = model;
     this.searchChange.emit(model);
   }
 
-  constructor(private tb: TableDataService) {
+  constructor(private tb: TableDataService, private Auth: AuthService) {
   }
 
   ngOnInit(): void {
+    this.isLogin = this.Auth.logIn;
   }
 
   openAddItem() {
