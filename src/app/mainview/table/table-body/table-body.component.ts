@@ -1,5 +1,5 @@
 import {
-  Component, EventEmitter, Input, OnInit, Output,
+  Component, EventEmitter, Input, OnInit, Output
 } from '@angular/core';
 import {Issue} from '../../../data/interface/issue';
 import {TableDataService} from '../table-service/table-data.service';
@@ -30,6 +30,7 @@ export class TableBodyComponent implements OnInit {
     }
 
   }
+
 
   private getIssues(): void {
     this.tableDataService.getIssues().subscribe((issues) => {
