@@ -24,11 +24,22 @@ export class TableBodyItemComponent implements OnInit {
   openInputComent = true;
   issue: any;
 
+
   constructor(public authServ: AuthService, private tableData: TableDataService) {
   }
 
 
   ngOnInit(): void {
+    this.issue = {
+      id: this.index,
+      userinfo: this.userinfo,
+      location: this.location,
+      issueSeverity: this.issueSeverity,
+      date: this.date,
+      description: this.description,
+      status: this.status,
+      comments: this.comments
+    };
 
   }
 
@@ -41,16 +52,7 @@ export class TableBodyItemComponent implements OnInit {
   AddComent($event: string) {
 
     this.comments.push($event);
-    this.issue = {
-      id: this.index,
-      userinfo: this.userinfo,
-      location: this.location,
-      issueSeverity: this.issueSeverity,
-      date: this.date,
-      description: this.description,
-      status: this.status,
-      comments: this.comments
-    };
+    this.issue.comments = this.comments;
     this.tableData.addComment(this.issue, this.index).subscribe()
     ;
     this.openInputComent = !this.openInputComent;
@@ -59,46 +61,19 @@ export class TableBodyItemComponent implements OnInit {
 
   statusDone() {
     this.status = 'done';
-    this.issue = {
-      id: this.index,
-      userinfo: this.userinfo,
-      location: this.location,
-      issueSeverity: this.issueSeverity,
-      date: this.date,
-      description: this.description,
-      status: this.status,
-      comments: this.comments
-    };
-    this.tableData.statusDone(this.issue, this.index).subscribe();
+    this.issue.status = this.status;
+    this.tableData.changeStatus(this.issue, this.index).subscribe();
   }
 
   statusInProgress() {
     this.status = 'in progress';
-    this.issue = {
-      id: this.index,
-      userinfo: this.userinfo,
-      location: this.location,
-      issueSeverity: this.issueSeverity,
-      date: this.date,
-      description: this.description,
-      status: this.status,
-      comments: this.comments
-    };
-    this.tableData.statusDone(this.issue, this.index).subscribe();
+    this.issue.status = this.status;
+    this.tableData.changeStatus(this.issue, this.index).subscribe();
   }
 
   statusNotStarted() {
     this.status = 'not started';
-    this.issue = {
-      id: this.index,
-      userinfo: this.userinfo,
-      location: this.location,
-      issueSeverity: this.issueSeverity,
-      date: this.date,
-      description: this.description,
-      status: this.status,
-      comments: this.comments
-    };
-    this.tableData.statusDone(this.issue, this.index).subscribe();
+    this.issue.status = this.status;
+    this.tableData.changeStatus(this.issue, this.index).subscribe();
   }
 }

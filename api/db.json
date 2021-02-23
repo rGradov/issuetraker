@@ -11,7 +11,8 @@
       "comments": [
         "",
         null,
-        null
+        null,
+        "asdsa"
       ]
     },
     {
@@ -81,7 +82,7 @@
       "issueSeverity": 4,
       "date": "2020-01-03T04:22:35.084Z",
       "description": "protocol panel panel",
-      "status": "not started",
+      "status": "in progress",
       "comments": [
         ""
       ]
@@ -93,7 +94,7 @@
       "issueSeverity": 3,
       "date": "2020-01-04T01:58:46.430Z",
       "description": "interface microchip system",
-      "status": "not started",
+      "status": "in progress",
       "comments": [
         ""
       ]
@@ -105,7 +106,7 @@
       "issueSeverity": 3,
       "date": "2020-01-02T15:14:19.696Z",
       "description": "hard drive interface system",
-      "status": "not started",
+      "status": "in progress",
       "comments": [
         ""
       ]

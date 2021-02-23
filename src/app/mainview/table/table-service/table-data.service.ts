@@ -75,10 +75,6 @@ export class TableDataService {
   }
 
   hideIssue(id: number): any {
-    // arr.filter(issue => issue.id < id && issue.id > id);
-    // // arr.splice(id, 1);
-    // return arr.filter(issue => issue.id < id).concat(
-    //   arr.filter(issue => issue.id > id));
     return this.http.delete(`${baseUrl}issues/${id}`);
   }
 
@@ -90,13 +86,8 @@ export class TableDataService {
   addComment(issue: any, id: number) {
     return this.http.put(`${baseUrl}issues/${id}`, issue);
   }
-  statusDone(issue:any,id:number){
-    return this.http.put(`${baseUrl}issues/${id}`, issue);
-  }
-  statusNotStarted(issue:any,id:number){
-    return this.http.put(`${baseUrl}issues/${id}`, issue);
-  }
-  statusInProgress(issue:any,id:number){
+
+  changeStatus(issue: any, id: number) {
     return this.http.put(`${baseUrl}issues/${id}`, issue);
   }
 
