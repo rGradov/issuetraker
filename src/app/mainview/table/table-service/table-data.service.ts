@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Issue} from '../../../data/interface/issue';
 import {baseUrl} from '../../../../environments/environment';
+import {User} from '../../../auth/interface/user';
 
 @Injectable({
   providedIn: 'root',

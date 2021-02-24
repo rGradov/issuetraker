@@ -20,10 +20,11 @@ const routes: Routes = [
     path: 'add', component: AddIssueComponent,
     canActivate: [AuthGuard]
   },
+  {path: 'newuser', component: AddnewuserComponent},
   {
     path: '**', redirectTo: ''
   },
-  {path: 'newuser', component: AddnewuserComponent}
+
 ];
 
 @NgModule({

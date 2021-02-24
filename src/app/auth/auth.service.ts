@@ -25,6 +25,13 @@ export class AuthService {
       }, error => this.authErr = error.message);
 
   }
+  addNewUser(email: string, password: string): any {
+    return this.http.post<User>(`${baseUrl}auth/register/`, {email, password})
+      .subscribe((data: any) => {
+
+      }, error => this.authErr = error.message);
+
+  }
 
   login(email: string, password: string) {
 

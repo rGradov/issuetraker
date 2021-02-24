@@ -1,1 +1,25 @@
-<p>addnewuser works!</p>
+<div class="login-page">
+  <ngb-alert type="success" *ngIf="success">You add new user</ngb-alert>
+
+  <div class="form">
+    <form [formGroup]="form"
+          class="login-form">
+      <input type="text" placeholder="email" name="email" formControlName="email"/>
+      <div class="alert alert-danger"
+           *ngIf="form.controls['email'].invalid && form.controls['email'].touched">
+        <p>Input correct email</p>
+      </div>
+      <input type="password" placeholder="password" formControlName="password"/>
+      <div class="alert alert-danger"
+           *ngIf="form.controls['password'].invalid && form.controls['password'].touched">
+        <p>Input correct password</p>
+      </div>
+
+      <button class="btn btn-primary" [disabled]="form.invalid"
+              [ngClass]="{
+                 'disabled': form.invalid
+                }"
+              (click)="Register()" >add new user</button>
+    </form>
+  </div>
+</div>

@@ -27,13 +27,14 @@ export class LoginComponent {
     this.err = this.authService.authErr;
 
     if (val.email && val.password) {
-      this.authService.login(val.email, val.password);
       this.err = this.authService.authErr;
 
+      this.authService.login(val.email, val.password);
     }
   }
 
   close() {
     this.err = '';
+    this.authService.authErr = '';
   }
 }
