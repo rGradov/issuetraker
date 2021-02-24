@@ -4,6 +4,7 @@ import {TableDataService} from '../../table-service/table-data.service';
 import {AuthService} from '../../../../auth/auth.service';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {Issue} from '../../../../data/interface/issue';
+import {DateInterface} from './date.interface';
 
 @Component({
   selector: 'app-add-issue',
@@ -18,13 +19,18 @@ export class AddIssueComponent implements OnInit {
   userEmail: string;
   model: NgbDateStruct;
   @Output() onChangeIssue = new EventEmitter<Issue>();
+  minDate: DateInterface = {
+    year: 2021
+  };
 
   constructor(private fb: FormBuilder,
               public tableDataService: TableDataService,
               private auth: AuthService) {
+
   }
 
   ngOnInit(): void {
+    this.currentDate();
     this.getUsers();
     this.initForm();
     this.isAdmin = this.auth.isAdmin();
@@ -35,7 +41,7 @@ export class AddIssueComponent implements OnInit {
   initForm() {
     this.rFrom = this.fb.group({
       description: new FormControl('', Validators.required),
-      userinfo: new FormControl('') ,
+      userinfo: new FormControl('', Validators.required),
       issueSeverity: new FormControl('', Validators.required),
       location: new FormControl('', Validators.required),
       status: new FormControl('not started', Validators.required),
@@ -63,5 +69,13 @@ export class AddIssueComponent implements OnInit {
     this.tableDataService.addIssue(formData).subscribe();
     this.onChangeIssue.emit(formData);
     this.tableDataService.openInput = !this.tableDataService.openInput;
+  }
+
+  private currentDate() {
+    const date = new Date();
+    this.minDate.year = date.getFullYear();
+    this.minDate.month = date.getMonth() - date.getMonth() + 1;
+    this.minDate.day = date.getDay() - date.getDay() + 1;
+
   }
 }

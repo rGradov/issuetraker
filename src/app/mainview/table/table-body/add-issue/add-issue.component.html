@@ -37,7 +37,7 @@
     <div class="comment"></div>
     <div class="date">
       <input class="form-control input-size" placeholder="yyyy-mm-dd" formControlName="date"
-             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+             name="dp" [(ngModel)]="model" ngbDatepicker [minDate]="minDate" #d="ngbDatepicker">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary calendar " id="size"
                 (click)="d.toggle()" type="button">
