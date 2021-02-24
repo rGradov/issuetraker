@@ -22,18 +22,16 @@
         </div>
         <div class="status">
           <span (click)="sortByStatus()">status</span>
-          <app-by-status></app-by-status>
         </div>
-
       </div>
     </li>
   </ul>
 </div>
 <app-add-issue (onChangeIssue)="onAddIssue($event)"></app-add-issue>
 <div class="table_body">
-<div *ngIf="err">
-  <ngb-alert type="danger" (closed)="close()">You should login/or register to display Issues</ngb-alert>
-</div>
+  <div *ngIf="err">
+    <ngb-alert type="danger" (closed)="close()">You should login/or register to display Issues</ngb-alert>
+  </div>
   <ul>
     <li *ngFor="let issue of issues|filter:search;let idx = index">
       <app-table-body-item
