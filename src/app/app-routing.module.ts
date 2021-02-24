@@ -2,11 +2,11 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './auth/login/login/login.component';
 import {MainviewComponent} from './mainview/mainview/mainview.component';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuard} from './auth/auth.guard';
 import {RegisterComponent} from './auth/register/register.component';
 import {StatsPageComponent} from './stats/stats-page/stats-page.component';
 import {AddIssueComponent} from './mainview/table/table-body/add-issue/add-issue.component';
+import {AddnewuserComponent} from './addnewuser/addnewuser.component';
 
 const routes: Routes = [
   {path: '', component: MainviewComponent},
@@ -22,7 +22,8 @@ const routes: Routes = [
   },
   {
     path: '**', redirectTo: ''
-  }
+  },
+  {path: 'newuser', component: AddnewuserComponent}
 ];
 
 @NgModule({

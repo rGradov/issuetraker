@@ -258,7 +258,7 @@
       "issueSeverity": "3",
       "date": "2010-12-17T21:00:00.000Z",
       "description": "test value for date",
-      "status": "not started",
+      "status": "in progress",
       "comments": []
     },
     {
@@ -278,7 +278,7 @@
       "issueSeverity": "4",
       "date": "2015-03-04T21:00:00.000Z",
       "description": "making wi-fi",
-      "status": "not started",
+      "status": "done",
       "comments": []
     },
     {
@@ -365,13 +365,35 @@
       "comments": []
     },
     {
+      "id": 36,
+      "userinfo": "olivier@mail.com",
+      "location": "home",
+      "issueSeverity": "4",
+      "date": "2021-03-16T21:00:00.000Z",
       "description": "tests",
+      "status": "done",
+      "comments": [
+        "bjvjb"
+      ]
+    },
+    {
+      "description": "hcgjkc",
       "userinfo": "olivier@mail.com",
       "issueSeverity": "4",
-      "location": "home",
+      "location": "university",
       "status": "in progress",
-      "date": "2021-03-16T21:00:00.000Z",
-      "id": 36,
+      "date": "2016-03-11T21:00:00.000Z",
+      "id": 37,
+      "comments": []
+    },
+    {
+      "id": 38,
+      "userinfo": "olivier@mail.com",
+      "location": "jljk'",
+      "issueSeverity": "2",
+      "date": "2021-03-09T21:00:00.000Z",
+      "description": "pj;",
+      "status": "not started",
       "comments": []
     }
   ]
